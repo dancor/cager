@@ -10,7 +10,6 @@ import qualified Data.Set as S
 import Control.Exception
 import Control.Monad
 import Data.Function
-import Util
 
 -- FIXME: just guessing freqs
 ltrByFreq = "EAIOU" ++ "RSTLN" ++ "YBCDFGHJKMPWQVXZ"
@@ -21,6 +20,9 @@ ltrs = S.fromList ltrByFreq
 lexFN = "/usr/share/dict/scrabble1"
 
 data CharPoss = Ch Char | Var Char deriving Eq
+
+pam :: a -> [a -> b] -> [b]
+pam x fs = [f x | f <- fs]
 
 findWds :: T.Trie Char () -> S.Set Char -> M.Map Char Char -> String ->
   [(M.Map Char Char, S.Set Char)]
