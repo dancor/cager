@@ -1,0 +1,9 @@
+the example takes about 33s to run:
+
+~ time cat example | cager
+loading lexicon
+loaded lexicon
+AND WE ARE HERE AS ON A DARKLING PLAIN SWEPT WITH CONFUSED ALARMS OF STRUGGLE AND FLIGHT WHERE IGNORANT ARMIES CLASH BY NIGHT
+.
+cat example  0.00s user 0.00s system 0% cpu 0.020 total
+cager  32.06s user 0.08s system 97% cpu 32.868 total

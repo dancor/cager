@@ -3,9 +3,9 @@ version:        0.1
 license:        GPL
 license-file:   LICENSE
 author:         dan corson <danl@alum.mit.edu>
-synopsis:       <syn>
+synopsis:       crytogram solver
 build-type:     Simple
-build-depends:  base, haskell98
+build-depends:  base, bytestring, containers, haskell98, Util
 
 executable:     cager
 main-is:        Main.hs
