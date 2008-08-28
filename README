@@ -1,14 +1,15 @@
-the example takes about 33s to run:
+the example takes about 30s to run:
 
-~ time cat examples/1 | cager
-loading lexicon
-loaded lexicon
+# my standard unix dictionary didn't have "darkling"
+~ wget http://dzl.no-ip.org/dict/owl1.bz2
+~ bunzip owl1.bz2
+~ time < examples/1 cager -d owl1
+Loading dictionary: "owl1"
+Considering wordset: ["ZFY","TM","ZGM","LMGM","ZA","HF","Z","YZGJRBFI","QRZBF","ATMQX","TBXL","WHFPNAMY","ZRZGVA","HP","AXGNIIRM","PRBILX","TLMGM","BIFHGZFX","ZGVBMA","WRZAL","UO","FBILX"]
 AND WE ARE HERE AS ON A DARKLING PLAIN SWEPT WITH CONFUSED ALARMS OF STRUGGLE AND FLIGHT WHERE IGNORANT ARMIES CLASH BY NIGHT
 .
-cat example  0.00s user 0.00s system 0% cpu 0.020 total
-cager  32.06s user 0.08s system 97% cpu 32.868 total
+cager -d owl1 < examples/1  31.77s user 0.08s system 97% cpu 32.527 total
 
-todo:
-- handle punctuation?  ' and -
-- somehow handle non-words..
-- efficiency could probably be much better
+possible improvements:
+- could try to auto-detect non-words (would greatly increase search time?)
+- efficiency could probably be much better in generally anyway
