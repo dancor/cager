@@ -10,7 +10,7 @@ import Prelude hiding (lookup)
 
 data Trie k v = Trie (Maybe v) !(M.Map k (Trie k v))
 
-lookup :: (Ord k, Monad m) => [k] -> Trie k v -> m v
+lookup :: (Ord k) => [k] -> Trie k v -> Maybe v
 lookup (x:xs) (Trie _ m)        = lookup xs =<< M.lookup x m
 lookup []     (Trie (Just v) _) = return v
 lookup _      _                 = fail "not in trie"
@@ -29,7 +29,7 @@ insert (x:xs) v (Trie mv m) = Trie mv $! M.alter f x m
 
 fromList xs = L.foldl' (\ t (k, v) -> insert k v t) empty xs
 
-descend :: (Monad m, Ord k) => k -> Trie k t -> m (Trie k t)
+descend :: (Ord k) => k -> Trie k t -> Maybe (Trie k t)
 descend k (Trie _ m) = M.lookup k m
 
 {-
