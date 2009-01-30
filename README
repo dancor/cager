@@ -12,4 +12,4 @@ cager -d owl1 < examples/1  31.77s user 0.08s system 97% cpu 32.527 total
 
 possible improvements:
 - could try to auto-detect non-words (would greatly increase search time?)
-- efficiency could probably be much better in generally anyway
+- efficiency could probably be much better in general anyway
